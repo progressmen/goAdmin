@@ -17,12 +17,12 @@ func GetItemsTable(ctx *context.Context) table.Table {
 
 	// 字段显示
 	info.AddField("Id", "id", db.Int).FieldFilterable()
-	info.AddField("Name", "name", db.Varchar)
-	info.AddField("Icon", "icon", db.Varchar).FieldDisplay(func(model types.FieldModel) interface{} {
+	info.AddField("名称", "name", db.Varchar)
+	info.AddField("图标", "icon", db.Varchar).FieldDisplay(func(model types.FieldModel) interface{} {
 		return "<img height=\"30px\" src=\"" + handle.UplodPath + model.Value + "\" />"
 
 	})
-	info.AddField("IsDel", "isDel", db.Tinyint).FieldDisplay(func(model types.FieldModel) interface{} {
+	info.AddField("是否删除", "isDel", db.Tinyint).FieldDisplay(func(model types.FieldModel) interface{} {
 		if model.Value == "1" {
 			return "否"
 		}

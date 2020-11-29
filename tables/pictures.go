@@ -18,11 +18,11 @@ func GetPicturesTable(ctx *context.Context) table.Table {
 
 	info.AddField("Id", "id", db.Int).
 		FieldFilterable()
-	info.AddField("ItemId", "itemId", db.Int)
-	info.AddField("PicUrl", "picUrl", db.Varchar).FieldDisplay(func(model types.FieldModel) interface{} {
+	info.AddField("分类ID", "itemId", db.Int)
+	info.AddField("图片", "picUrl", db.Varchar).FieldDisplay(func(model types.FieldModel) interface{} {
 		return "<img height=\"30px\" src=\"" + handle.UplodPath + model.Value + "\" />"
 	})
-	info.AddField("IsDel", "isDel", db.Tinyint).FieldDisplay(func(model types.FieldModel) interface{} {
+	info.AddField("是否删除", "isDel", db.Tinyint).FieldDisplay(func(model types.FieldModel) interface{} {
 		if model.Value == "1" {
 			return "否"
 		}
