@@ -6,8 +6,6 @@ import (
 	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/table"
 	"github.com/GoAdminGroup/go-admin/template/types"
 	"github.com/GoAdminGroup/go-admin/template/types/form"
-	"jiuhuo/libary/util/timer"
-	"jiuhuo/libary/util/tool"
 )
 
 func GetItemsTable(ctx *context.Context) table.Table {
@@ -31,17 +29,17 @@ func GetItemsTable(ctx *context.Context) table.Table {
 		}
 		return "未知"
 	})
-	info.AddField("CreateTime", "createTime", db.Int).FieldDisplay(func(model types.FieldModel) interface{} {
-		var strV = model.Value + "000"
-		return timer.ConversionTimeMSToDate(tool.StrToInt64(strV), timer.DefaultDatetimeFormat)
-	})
-	info.AddField("UpdateTime", "updateTime", db.Int).FieldDisplay(func(model types.FieldModel) interface{} {
-		if model.Value == "0" {
-			return "/"
-		}
-		var strV = model.Value + "000"
-		return timer.ConversionTimeMSToDate(tool.StrToInt64(strV), timer.DefaultDatetimeFormat)
-	})
+	//info.AddField("CreateTime", "createTime", db.Int).FieldDisplay(func(model types.FieldModel) interface{} {
+	//	var strV = model.Value + "000"
+	//	return timer.ConversionTimeMSToDate(tool.StrToInt64(strV), timer.DefaultDatetimeFormat)
+	//})
+	//info.AddField("UpdateTime", "updateTime", db.Int).FieldDisplay(func(model types.FieldModel) interface{} {
+	//	if model.Value == "0" {
+	//		return "/"
+	//	}
+	//	var strV = model.Value + "000"
+	//	return timer.ConversionTimeMSToDate(tool.StrToInt64(strV), timer.DefaultDatetimeFormat)
+	//})
 
 	info.SetTable("items").SetTitle("Items").SetDescription("Items")
 
@@ -56,12 +54,10 @@ func GetItemsTable(ctx *context.Context) table.Table {
 		FieldDisableWhenUpdate()
 	formList.AddField("CreateTime", "createTime", db.Int, form.Number).
 		FieldDisableWhenCreate().
-		FieldDisableWhenUpdate().
-		FieldDefault("1606632495")
+		FieldDisableWhenUpdate()
 	formList.AddField("UpdateTime", "updateTime", db.Int, form.Number).
 		FieldDisableWhenCreate().
-		FieldDisableWhenUpdate().
-		FieldDefault("1606632495")
+		FieldDisableWhenUpdate()
 
 	formList.SetTable("items").SetTitle("Items").SetDescription("Items")
 
