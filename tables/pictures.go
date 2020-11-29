@@ -6,8 +6,7 @@ import (
 	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/table"
 	"github.com/GoAdminGroup/go-admin/template/types"
 	"github.com/GoAdminGroup/go-admin/template/types/form"
-	"gorm.io/driver/mysql"
-	"gorm.io/gorm"
+	"jiuhuo/handle"
 	"jiuhuo/libary/util/tool"
 )
 
@@ -36,11 +35,10 @@ func GetPicturesTable(ctx *context.Context) table.Table {
 	info.SetTable("pictures").SetTitle("Pictures").SetDescription("Pictures")
 
 	// 获取item信息
-	dbCon := InitDb()
 	where := map[string]interface{}{
 		"isDel": 1,
 	}
-	rows, _ := dbCon.Table("items").Select("id,name").Where(where).Rows()
+	rows, _ := handle.DbCon.Table("items").Select("id,name").Where(where).Rows()
 	var resItemId int
 	var resName string
 	var fops types.FieldOptions
@@ -72,13 +70,4 @@ func GetPicturesTable(ctx *context.Context) table.Table {
 	formList.SetTable("pictures").SetTitle("Pictures").SetDescription("Pictures")
 
 	return pictures
-}
-
-func InitDb() *gorm.DB {
-	dsn := "work:npWS1Iu5MCmYmG9U@tcp(127.0.0.1:3306)/shahejiuhuo?charset=utf8mb4&parseTime=True&loc=Local"
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
-	if err != nil {
-		panic("连接数据库失败")
-	}
-	return db
 }

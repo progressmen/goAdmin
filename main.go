@@ -18,6 +18,8 @@ import (
 	"jiuhuo/models"
 	"jiuhuo/pages"
 	"jiuhuo/tables"
+
+	"jiuhuo/handle"
 )
 
 func main() {
@@ -46,6 +48,15 @@ func startServer() {
 	eng.HTMLFile("GET", "/admin/hello", "./html/hello.tmpl", map[string]interface{}{
 		"msg": "Hello world",
 	})
+
+	// 获取分类
+    r.POST("/shjh/getItemList", handle.GetItemList)
+
+    // 获取图片
+    r.POST("/shjh/getPicList", handle.GetPicList)
+
+    // 初始化数据库
+    handle.InitDb()
 
 	models.Init(eng.MysqlConnection())
 
