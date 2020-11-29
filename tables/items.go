@@ -6,7 +6,6 @@ import (
 	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/table"
 	"github.com/GoAdminGroup/go-admin/template/types"
 	"github.com/GoAdminGroup/go-admin/template/types/form"
-	form2 "github.com/ajg/form"
 	"jiuhuo/libary/util/timer"
 	"jiuhuo/libary/util/tool"
 )
