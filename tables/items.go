@@ -16,7 +16,9 @@ func GetItemsTable(ctx *context.Context) table.Table {
 
 	info.AddField("Id", "id", db.Int).FieldFilterable()
 	info.AddField("Name", "name", db.Varchar)
-	info.AddField("Icon", "icon", db.Varchar)
+	info.AddField("Icon", "icon", db.Varchar).FieldDisplay(func(model types.FieldModel) interface{} {
+		return "<img src=\"" + model.Value + "\" />"
+	})
 	info.AddField("IsDel", "isDel", db.Tinyint).FieldDisplay(func(model types.FieldModel) interface{} {
 		if model.Value == "1" {
 			return "否"
