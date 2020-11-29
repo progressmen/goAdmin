@@ -19,7 +19,7 @@ func GetItemsTable(ctx *context.Context) table.Table {
 	info.AddField("Id", "id", db.Int).FieldFilterable()
 	info.AddField("Name", "name", db.Varchar)
 	info.AddField("Icon", "icon", db.Varchar).FieldDisplay(func(model types.FieldModel) interface{} {
-		return "<img height=\"15px\" src=\"" + model.Value + "\" />"
+		return "<img height=\"30px\" src=\"" + model.Value + "\" />"
 	})
 	info.AddField("IsDel", "isDel", db.Tinyint).FieldDisplay(func(model types.FieldModel) interface{} {
 		if model.Value == "1" {
@@ -28,13 +28,19 @@ func GetItemsTable(ctx *context.Context) table.Table {
 		if model.Value == "2" {
 			return "是"
 		}
-		return "unknown"
+		return "未知"
 	})
 	info.AddField("CreateTime", "createTime", db.Int).FieldDisplay(func(model types.FieldModel) interface{} {
 		var strV = model.Value + "000"
 		return timer.ConversionTimeMSToDate(tool.StrToInt64(strV), timer.DefaultDatetimeFormat)
 	})
-	info.AddField("UpdateTime", "updateTime", db.Int)
+	info.AddField("UpdateTime", "updateTime", db.Int).FieldDisplay(func(model types.FieldModel) interface{} {
+		if model.Value == "0" {
+			return "/"
+		}
+		var strV = model.Value + "000"
+		return timer.ConversionTimeMSToDate(tool.StrToInt64(strV), timer.DefaultDatetimeFormat)
+	})
 
 	info.SetTable("items").SetTitle("Items").SetDescription("Items")
 
