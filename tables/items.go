@@ -6,6 +6,8 @@ import (
 	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/table"
 	"github.com/GoAdminGroup/go-admin/template/types"
 	"github.com/GoAdminGroup/go-admin/template/types/form"
+	"jiuhuo/libary/util/timer"
+	"jiuhuo/libary/util/tool"
 )
 
 func GetItemsTable(ctx *context.Context) table.Table {
@@ -17,7 +19,7 @@ func GetItemsTable(ctx *context.Context) table.Table {
 	info.AddField("Id", "id", db.Int).FieldFilterable()
 	info.AddField("Name", "name", db.Varchar)
 	info.AddField("Icon", "icon", db.Varchar).FieldDisplay(func(model types.FieldModel) interface{} {
-		return "<img src=\"" + model.Value + "\" />"
+		return "<img height=\"15px\" src=\"" + model.Value + "\" />"
 	})
 	info.AddField("IsDel", "isDel", db.Tinyint).FieldDisplay(func(model types.FieldModel) interface{} {
 		if model.Value == "1" {
@@ -28,7 +30,10 @@ func GetItemsTable(ctx *context.Context) table.Table {
 		}
 		return "unknown"
 	})
-	info.AddField("CreateTime", "createTime", db.Int)
+	info.AddField("CreateTime", "createTime", db.Int).FieldDisplay(func(model types.FieldModel) interface{} {
+		var strV = model.Value + "000"
+		return timer.ConversionTimeMSToDate(tool.StrToInt64(strV), timer.DefaultDatetimeFormat)
+	})
 	info.AddField("UpdateTime", "updateTime", db.Int)
 
 	info.SetTable("items").SetTitle("Items").SetDescription("Items")
