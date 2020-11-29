@@ -16,6 +16,7 @@ func GetItemsTable(ctx *context.Context) table.Table {
 
 	info := items.GetInfo().HideFilterArea()
 
+	// 字段显示
 	info.AddField("Id", "id", db.Int).FieldFilterable()
 	info.AddField("Name", "name", db.Varchar)
 	info.AddField("Icon", "icon", db.Varchar).FieldDisplay(func(model types.FieldModel) interface{} {
@@ -45,12 +46,8 @@ func GetItemsTable(ctx *context.Context) table.Table {
 	info.SetTable("items").SetTitle("Items").SetDescription("Items")
 
 	formList := items.GetForm()
-	formList.AddField("Id", "id", db.Int, form.Default).
-		FieldDisableWhenCreate().
-		FieldDisableWhenUpdate()
-	formList.AddField("Name", "name", db.Varchar, form.Text).
-		FieldDisableWhenCreate().
-		FieldDisableWhenUpdate()
+	formList.AddField("Id", "id", db.Int, form.Default)
+	formList.AddField("Name", "name", db.Varchar, form.Text)
 	formList.AddField("Icon", "icon", db.Varchar, form.Text).
 		FieldDisableWhenCreate().
 		FieldDisableWhenUpdate()
