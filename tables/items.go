@@ -6,6 +6,7 @@ import (
 	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/table"
 	"github.com/GoAdminGroup/go-admin/template/types"
 	"github.com/GoAdminGroup/go-admin/template/types/form"
+	form2 "github.com/ajg/form"
 	"jiuhuo/libary/util/timer"
 	"jiuhuo/libary/util/tool"
 )
@@ -56,10 +57,12 @@ func GetItemsTable(ctx *context.Context) table.Table {
 		FieldDisableWhenUpdate()
 	formList.AddField("CreateTime", "createTime", db.Int, form.Number).
 		FieldDisableWhenCreate().
-		FieldDisableWhenUpdate()
+		FieldDisableWhenUpdate().
+		FieldDefault("1606632495")
 	formList.AddField("UpdateTime", "updateTime", db.Int, form.Number).
 		FieldDisableWhenCreate().
-		FieldDisableWhenUpdate()
+		FieldDisableWhenUpdate().
+		FieldDefault("1606632495")
 
 	formList.SetTable("items").SetTitle("Items").SetDescription("Items")
 
