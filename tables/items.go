@@ -6,6 +6,7 @@ import (
 	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/table"
 	"github.com/GoAdminGroup/go-admin/template/types"
 	"github.com/GoAdminGroup/go-admin/template/types/form"
+	"jiuhuo/handle"
 )
 
 func GetItemsTable(ctx *context.Context) table.Table {
@@ -18,7 +19,8 @@ func GetItemsTable(ctx *context.Context) table.Table {
 	info.AddField("Id", "id", db.Int).FieldFilterable()
 	info.AddField("Name", "name", db.Varchar)
 	info.AddField("Icon", "icon", db.Varchar).FieldDisplay(func(model types.FieldModel) interface{} {
-		return "<img height=\"30px\" src=\"" + model.Value + "\" />"
+		return "<img height=\"30px\" src=\"" + handle.UplodPath + model.Value + "\" />"
+
 	})
 	info.AddField("IsDel", "isDel", db.Tinyint).FieldDisplay(func(model types.FieldModel) interface{} {
 		if model.Value == "1" {
