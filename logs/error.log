@@ -1,0 +1,86 @@
+2020-11-29T21:23:28.230+0800	[31mERROR[0m	controller/new.go:118	insert data error: 4:1: expected 'IDENT', found 'import'
+github.com/GoAdminGroup/go-admin/modules/logger.Error
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/modules/logger/logger.go:285
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).NewForm
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/plugins/admin/controller/new.go:118
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/context/context.go:101
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).NewForm
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/plugins/admin/modules/guard/new.go:121
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/context/context.go:101
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/context/context.go:101
+github.com/GoAdminGroup/go-admin/modules/auth.(*Invoker).Middleware.func1
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/context/context.go:101
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/plugins/admin/router.go:104
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/context/context.go:101
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/adapter/gin/gin.go:91
+github.com/gin-gonic/gin.(*Context).Next
+	/root/go/pkg/mod/github.com/gin-gonic/gin@v1.6.3/context.go:161
+github.com/gin-gonic/gin.RecoveryWithWriter.func1
+	/root/go/pkg/mod/github.com/gin-gonic/gin@v1.6.3/recovery.go:83
+github.com/gin-gonic/gin.(*Context).Next
+	/root/go/pkg/mod/github.com/gin-gonic/gin@v1.6.3/context.go:161
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/root/go/pkg/mod/github.com/gin-gonic/gin@v1.6.3/logger.go:241
+github.com/gin-gonic/gin.(*Context).Next
+	/root/go/pkg/mod/github.com/gin-gonic/gin@v1.6.3/context.go:161
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/root/go/pkg/mod/github.com/gin-gonic/gin@v1.6.3/gin.go:409
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/root/go/pkg/mod/github.com/gin-gonic/gin@v1.6.3/gin.go:367
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:2843
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:1925
+2020-11-29T21:24:27.324+0800	[31mERROR[0m	controller/new.go:118	insert data error: 4:1: expected 'IDENT', found 'import'
+github.com/GoAdminGroup/go-admin/modules/logger.Error
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/modules/logger/logger.go:285
+github.com/GoAdminGroup/go-admin/plugins/admin/controller.(*Handler).NewForm
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/plugins/admin/controller/new.go:118
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/context/context.go:101
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).NewForm
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/plugins/admin/modules/guard/new.go:121
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/context/context.go:101
+github.com/GoAdminGroup/go-admin/plugins/admin/modules/guard.(*Guard).CheckPrefix
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/plugins/admin/modules/guard/guard.go:51
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/context/context.go:101
+github.com/GoAdminGroup/go-admin/modules/auth.(*Invoker).Middleware.func1
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/modules/auth/middleware.go:132
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/context/context.go:101
+github.com/GoAdminGroup/go-admin/plugins/admin.(*Admin).globalErrorHandler
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/plugins/admin/router.go:104
+github.com/GoAdminGroup/go-admin/context.(*Context).Next
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/context/context.go:101
+github.com/GoAdminGroup/go-admin/adapter/gin.(*Gin).AddHandler.func1
+	/root/go/pkg/mod/github.com/!go!admin!group/go-admin@v1.2.17/adapter/gin/gin.go:91
+github.com/gin-gonic/gin.(*Context).Next
+	/root/go/pkg/mod/github.com/gin-gonic/gin@v1.6.3/context.go:161
+github.com/gin-gonic/gin.RecoveryWithWriter.func1
+	/root/go/pkg/mod/github.com/gin-gonic/gin@v1.6.3/recovery.go:83
+github.com/gin-gonic/gin.(*Context).Next
+	/root/go/pkg/mod/github.com/gin-gonic/gin@v1.6.3/context.go:161
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/root/go/pkg/mod/github.com/gin-gonic/gin@v1.6.3/logger.go:241
+github.com/gin-gonic/gin.(*Context).Next
+	/root/go/pkg/mod/github.com/gin-gonic/gin@v1.6.3/context.go:161
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/root/go/pkg/mod/github.com/gin-gonic/gin@v1.6.3/gin.go:409
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/root/go/pkg/mod/github.com/gin-gonic/gin@v1.6.3/gin.go:367
+net/http.serverHandler.ServeHTTP
+	/usr/local/go/src/net/http/server.go:2843
+net/http.(*conn).serve
+	/usr/local/go/src/net/http/server.go:1925
