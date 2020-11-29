@@ -46,11 +46,11 @@ func GetItemsTable(ctx *context.Context) table.Table {
 	info.SetTable("items").SetTitle("Items").SetDescription("Items")
 
 	formList := items.GetForm()
-	formList.AddField("Id", "id", db.Int, form.Default)
-	formList.AddField("Name", "name", db.Varchar, form.Text)
-	formList.AddField("Icon", "icon", db.Varchar, form.Text).
+	formList.AddField("Id", "id", db.Int, form.Default).
 		FieldDisableWhenCreate().
 		FieldDisableWhenUpdate()
+	formList.AddField("Name", "name", db.Varchar, form.Text)
+	formList.AddField("Icon", "icon", db.Varchar, form.File)
 	formList.AddField("IsDel", "isDel", db.Tinyint, form.Number).
 		FieldDisableWhenCreate().
 		FieldDisableWhenUpdate()
