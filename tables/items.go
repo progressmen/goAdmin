@@ -19,7 +19,11 @@ func GetItemsTable(ctx *context.Context) table.Table {
 	info.AddField("Id", "id", db.Int).FieldFilterable()
 	info.AddField("名称", "name", db.Varchar)
 	info.AddField("图标", "icon", db.Varchar).FieldDisplay(func(model types.FieldModel) interface{} {
-		return "<img height=\"30px\" src=\"" + handle.UplodPath + model.Value + "\" />"
+		if model.Value == "" {
+			return "暂无"
+		} else {
+			return "<img height=\"30px\" src=\"" + handle.UplodPath + model.Value + "\" />"
+		}
 
 	})
 	info.AddField("是否删除", "isDel", db.Tinyint).FieldDisplay(func(model types.FieldModel) interface{} {

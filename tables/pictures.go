@@ -14,13 +14,27 @@ func GetPicturesTable(ctx *context.Context) table.Table {
 
 	pictures := table.NewDefaultTable(table.DefaultConfigWithDriver("mysql"))
 
+	// 获取item信息
+	fops := getItemInfo()
+
 	info := pictures.GetInfo().HideFilterArea()
 
 	info.AddField("Id", "id", db.Int).
 		FieldFilterable()
-	info.AddField("分类ID", "itemId", db.Int)
+	info.AddField("分类ID", "itemId", db.Int).FieldDisplay(func(model types.FieldModel) interface{} {
+		for _, v := range fops {
+			if model.Value == v.Value {
+				return v.Text
+			}
+		}
+		return model.Value
+	})
 	info.AddField("图片", "picUrl", db.Varchar).FieldDisplay(func(model types.FieldModel) interface{} {
-		return "<img height=\"30px\" src=\"" + handle.UplodPath + model.Value + "\" />"
+		if model.Value == "" {
+			return "暂无"
+		} else {
+			return "<img height=\"30px\" src=\"" + handle.UplodPath + model.Value + "\" />"
+		}
 	})
 	info.AddField("是否删除", "isDel", db.Tinyint).FieldDisplay(func(model types.FieldModel) interface{} {
 		if model.Value == "1" {
@@ -35,22 +49,6 @@ func GetPicturesTable(ctx *context.Context) table.Table {
 	//info.AddField("UpdateTime", "updateTime", db.Int)
 
 	info.SetTable("pictures").SetTitle("Pictures").SetDescription("Pictures")
-
-	// 获取item信息
-	where := map[string]interface{}{
-		"isDel": 1,
-	}
-	rows, _ := handle.DbCon.Table("items").Select("id,name").Where(where).Rows()
-	var resItemId int
-	var resName string
-	var fops types.FieldOptions
-	for rows.Next() {
-		var fop types.FieldOption
-		rows.Scan(&resItemId, &resName)
-		fop.Text = resName
-		fop.Value = tool.IntToStr(resItemId)
-		fops = append(fops, fop)
-	}
 
 	formList := pictures.GetForm()
 	formList.AddField("Id", "id", db.Int, form.Default).
@@ -72,4 +70,24 @@ func GetPicturesTable(ctx *context.Context) table.Table {
 	formList.SetTable("pictures").SetTitle("Pictures").SetDescription("Pictures")
 
 	return pictures
+}
+
+// 获取item表信息
+func getItemInfo() types.FieldOptions {
+	// 获取item信息
+	where := map[string]interface{}{
+		"isDel": 1,
+	}
+	rows, _ := handle.DbCon.Table("items").Select("id,name").Where(where).Rows()
+	var resItemId int
+	var resName string
+	var fops types.FieldOptions
+	for rows.Next() {
+		var fop types.FieldOption
+		rows.Scan(&resItemId, &resName)
+		fop.Text = resName
+		fop.Value = tool.IntToStr(resItemId)
+		fops = append(fops, fop)
+	}
+	return fops
 }
