@@ -36,7 +36,7 @@ func GetPicturesTable(ctx *context.Context) table.Table {
 			return "<img height=\"30px\" src=\"" + handle.UplodPath + model.Value + "\" />"
 		}
 	})
-	info.AddField("是否删除", "isDel", db.Tinyint).FieldDisplay(func(model types.FieldModel) interface{} {
+	info.AddField("是否禁用", "isDel", db.Tinyint).FieldDisplay(func(model types.FieldModel) interface{} {
 		if model.Value == "1" {
 			return "否"
 		}
@@ -54,12 +54,15 @@ func GetPicturesTable(ctx *context.Context) table.Table {
 	formList.AddField("Id", "id", db.Int, form.Default).
 		FieldDisableWhenCreate().
 		FieldDisableWhenUpdate()
-	formList.AddField("ItemId", "itemId", db.Int, form.SelectSingle).
+	formList.AddField("分类", "itemId", db.Int, form.SelectSingle).
 		FieldOptions(fops)
-	formList.AddField("PicUrl", "picUrl", db.Varchar, form.File)
-	formList.AddField("IsDel", "isDel", db.Tinyint, form.Number).
-		FieldDisableWhenCreate().
-		FieldDisableWhenUpdate()
+	formList.AddField("图片", "picUrl", db.Varchar, form.File)
+	formList.AddField("是否禁用", "isDel", db.Tinyint, form.SelectSingle).
+		FieldOptions(types.FieldOptions{
+			{Text: "否", Value: "1"},
+			{Text: "是", Value: "2"},
+		}).
+		FieldDefault("1")
 	formList.AddField("CreateTime", "createTime", db.Int, form.Number).
 		FieldDisableWhenCreate().
 		FieldDisableWhenUpdate()
