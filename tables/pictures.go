@@ -6,8 +6,8 @@ import (
 	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/table"
 	"github.com/GoAdminGroup/go-admin/template/types"
 	"github.com/GoAdminGroup/go-admin/template/types/form"
-	"jiuhuo/handle"
-	"jiuhuo/libary/util/tool"
+	"goAdmin/handle"
+	"goAdmin/libary/util/tool"
 )
 
 func GetPicturesTable(ctx *context.Context) table.Table {

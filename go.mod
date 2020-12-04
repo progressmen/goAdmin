@@ -1,4 +1,4 @@
-module jiuhuo
+module goAdmin
 
 go 1.15
 

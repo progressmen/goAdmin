@@ -6,7 +6,7 @@ import (
 	"github.com/GoAdminGroup/go-admin/plugins/admin/modules/table"
 	"github.com/GoAdminGroup/go-admin/template/types"
 	"github.com/GoAdminGroup/go-admin/template/types/form"
-	"jiuhuo/handle"
+	"goAdmin/handle"
 )
 
 func GetItemsTable(ctx *context.Context) table.Table {

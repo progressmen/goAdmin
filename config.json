@@ -26,16 +26,16 @@
 	"login_url": "/login",
 	"debug": true,
 	"env": "local",
-	"info_log": "/root/go/src/jiuhuo/logs/info.log",
-	"error_log": "/root/go/src/jiuhuo/logs/error.log",
-	"access_log": "/root/go/src/jiuhuo/logs/access.log",
+	"info_log": "/root/go/src/goAdmin/logs/info.log",
+	"error_log": "/root/go/src/goAdmin/logs/error.log",
+	"access_log": "/root/go/src/goAdmin/logs/access.log",
 	"session_life_time": 7200,
 	"file_upload_engine": {
 		"name": "local"
 	},
 	"login_title": "GoAdmin",
 	"auth_user_table": "goadmin_users",
-	"bootstrap_file_path": "/root/go/src/jiuhuo/bootstrap.go",
-	"go_mod_file_path": "/root/go/src/jiuhuo/go.mod",
+	"bootstrap_file_path": "/root/go/src/goAdmin/bootstrap.go",
+	"go_mod_file_path": "/root/go/src/goAdmin/go.mod",
 	"asset_root_path": "./public/"
 }

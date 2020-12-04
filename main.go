@@ -15,11 +15,11 @@ import (
 	"github.com/GoAdminGroup/go-admin/template/chartjs"
 	"github.com/gin-gonic/gin"
 
-	"jiuhuo/models"
-	"jiuhuo/pages"
-	"jiuhuo/tables"
+	"goAdmin/models"
+	"goAdmin/pages"
+	"goAdmin/tables"
 
-	"jiuhuo/handle"
+	"goAdmin/handle"
 )
 
 func main() {
